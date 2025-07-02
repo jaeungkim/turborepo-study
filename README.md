@@ -43,6 +43,7 @@ graph TD
 - [Next.js 15](https://nextjs.org/) and [React](https://react.dev/) for apps
 - [Storybook](https://storybook.js.org/) for UI development
 - [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+- **Yarn Berry with node_modules linker** (not PnP) for maximum compatibility
 
 ---
 
@@ -86,7 +87,7 @@ yarn install
 
 **How does this work?**
 
-- Modern package managers like Yarn Berry and pnpm support multiple versions of the same internal package in a monorepo.
+- Modern package managers like Yarn Berry (with node_modules linker) and pnpm support multiple versions of the same internal package in a monorepo.
 - Each app's `package.json` specifies the version it wants.
 - The package manager links the correct version for each app, even if that means having multiple versions in the monorepo at once.
 
