@@ -16,10 +16,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@e8ight/eslint-config": "*",
+    "@e8ight/typescript-config": "*",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
     "eslint": "^8.57.0",
     "typescript": "5.5.4"
   }

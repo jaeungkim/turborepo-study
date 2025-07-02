@@ -1,9 +1,14 @@
 {
-  "name": "@repo/typescript-config",
-  "version": "0.0.0",
+  "name": "@e8ight/typescript-config",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "base.json",
+    "vite.json",
+    "react-library.json"
+  ]
 }
