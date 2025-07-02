@@ -1,5 +1,5 @@
 {
-  "extends": "@jaeungkim/typescript-config/vite.json",
+  "extends": "../../packages/typescript-config/vite.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "baseUrl": "src",

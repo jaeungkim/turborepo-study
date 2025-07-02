@@ -729,7 +729,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@jaeungkim/typescript-config@npm:*, @jaeungkim/typescript-config@npm:1.0.0, @jaeungkim/typescript-config@workspace:packages/typescript-config":
+"@jaeungkim/typescript-config@npm:*, @jaeungkim/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@jaeungkim/typescript-config@workspace:packages/typescript-config"
   languageName: unknown
@@ -3559,7 +3559,7 @@ __metadata:
   dependencies:
     "@jaeungkim/eslint-config": "npm:2.0.0"
     "@jaeungkim/prettier-config": "npm:*"
-    "@jaeungkim/typescript-config": "npm:1.0.0"
+    "@jaeungkim/typescript-config": "npm:*"
     "@jaeungkim/ui": "npm:*"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
