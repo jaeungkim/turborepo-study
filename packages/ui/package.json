@@ -16,8 +16,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@e8ight/eslint-config": "*",
-    "@e8ight/typescript-config": "*",
+    "@jaeungkim/eslint-config": "*",
+    "@jaeungkim/typescript-config": "*",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "eslint": "^8.57.0",

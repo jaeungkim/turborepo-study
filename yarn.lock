@@ -212,37 +212,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@e8ight/eslint-config@npm:*, @e8ight/eslint-config@workspace:packages/eslint-config":
-  version: 0.0.0-use.local
-  resolution: "@e8ight/eslint-config@workspace:packages/eslint-config"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
-    "@typescript-eslint/parser": "npm:^7.1.0"
-    eslint-config-prettier: "npm:^9.1.0"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^6.0.0
-    "@typescript-eslint/parser": ^6.0.0
-    eslint: ^8.0.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-import: ^2.29.0
-    eslint-plugin-jsx-a11y: ^6.7.0
-    eslint-plugin-react: ^7.33.0
-    eslint-plugin-react-hooks: ^4.6.0
-  languageName: unknown
-  linkType: soft
-
-"@e8ight/prettier-config@npm:*, @e8ight/prettier-config@workspace:packages/prettier-config":
-  version: 0.0.0-use.local
-  resolution: "@e8ight/prettier-config@workspace:packages/prettier-config"
-  languageName: unknown
-  linkType: soft
-
-"@e8ight/typescript-config@npm:*, @e8ight/typescript-config@workspace:packages/typescript-config":
-  version: 0.0.0-use.local
-  resolution: "@e8ight/typescript-config@workspace:packages/typescript-config"
-  languageName: unknown
-  linkType: soft
-
 "@esbuild/aix-ppc64@npm:0.21.5":
   version: 0.21.5
   resolution: "@esbuild/aix-ppc64@npm:0.21.5"
@@ -494,6 +463,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jaeungkim/eslint-config@npm:*, @jaeungkim/eslint-config@workspace:packages/eslint-config":
+  version: 0.0.0-use.local
+  resolution: "@jaeungkim/eslint-config@workspace:packages/eslint-config"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
+    "@typescript-eslint/parser": "npm:^7.1.0"
+    eslint-config-prettier: "npm:^9.1.0"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
+    eslint: ^8.0.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-import: ^2.29.0
+    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-react: ^7.33.0
+    eslint-plugin-react-hooks: ^4.6.0
+  languageName: unknown
+  linkType: soft
+
+"@jaeungkim/prettier-config@npm:*, @jaeungkim/prettier-config@workspace:packages/prettier-config":
+  version: 0.0.0-use.local
+  resolution: "@jaeungkim/prettier-config@workspace:packages/prettier-config"
+  languageName: unknown
+  linkType: soft
+
+"@jaeungkim/typescript-config@npm:*, @jaeungkim/typescript-config@workspace:packages/typescript-config":
+  version: 0.0.0-use.local
+  resolution: "@jaeungkim/typescript-config@workspace:packages/typescript-config"
+  languageName: unknown
+  linkType: soft
+
 "@jridgewell/gen-mapping@npm:^0.3.5":
   version: 0.3.11
   resolution: "@jridgewell/gen-mapping@npm:0.3.11"
@@ -588,8 +588,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@repo/ui@workspace:packages/ui"
   dependencies:
-    "@e8ight/eslint-config": "npm:*"
-    "@e8ight/typescript-config": "npm:*"
+    "@jaeungkim/eslint-config": "npm:*"
+    "@jaeungkim/typescript-config": "npm:*"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
     eslint: "npm:^8.57.0"
@@ -2933,9 +2933,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
-    "@e8ight/eslint-config": "npm:*"
-    "@e8ight/prettier-config": "npm:*"
-    "@e8ight/typescript-config": "npm:*"
+    "@jaeungkim/eslint-config": "npm:*"
+    "@jaeungkim/prettier-config": "npm:*"
+    "@jaeungkim/typescript-config": "npm:*"
     "@repo/ui": "npm:*"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"

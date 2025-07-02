@@ -1,32 +1,38 @@
-# `Turborepo` Vite starter
+# Turborepo Monorepo Study
 
-This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
+This repository is a personal study and experimentation ground for modern monorepo development using [Turborepo](https://turbo.build/).
 
-## Using this example
+## Purpose
 
-Run the following command:
+- **Learning and exploring** how to structure, build, and deploy a monorepo with multiple frameworks and tools.
+- **Experimenting** with Next.js 15, React apps, a shared design system, Storybook, and custom CI/CD strategies for each app and package.
 
-```sh
-npx create-turbo@latest -e with-vite-react
-```
+## Structure
 
-## What's inside?
+- **Apps**
+  - `web`: React (Vite) app
+  - `nextjs-app`: (Planned) Next.js 15 app
+- **Packages**
+  - `@jaeungkim/ui`: Shared UI component library (design system)
+  - `@jaeungkim/eslint-config`: Shared ESLint config
+  - `@jaeungkim/typescript-config`: Shared TypeScript config
+  - `@jaeungkim/prettier-config`: Shared Prettier config
 
-This Turborepo includes the following packages and apps:
+- **Storybook**
+  - Integrated for the design system and/or UI packages
 
-### Apps and Packages
+## CI/CD
 
-- `web`: react [vite](https://vitejs.dev) ts app
-- `@repo/ui`: a stub component library shared by `web` application
-- `@repo/eslint-config`: shared `eslint` configurations
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- Each app and package can have its own CI/CD workflow (e.g., GitHub Actions), Dockerfile, and deployment strategy.
+- The goal is to understand how to manage independent build, test, and deploy pipelines within a single monorepo.
 
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Tech Stack
 
-### Utilities
+- [Turborepo](https://turbo.build/) for monorepo orchestration
+- [Next.js 15](https://nextjs.org/) and [React](https://react.dev/) for apps
+- [Storybook](https://storybook.js.org/) for UI development
+- [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 
-This Turborepo has some additional tools already setup for you:
+---
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+> This repo is for **learning and experimentation**. Expect breaking changes, new tools, and evolving structure as I explore best practices for monorepos!

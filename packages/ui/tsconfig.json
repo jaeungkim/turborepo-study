@@ -1,5 +1,5 @@
 {
-  "extends": "@e8ight/typescript-config/react-library.json",
+  "extends": "@jaeungkim/typescript-config/react-library.json",
   "include": ["."],
   "exclude": ["node_modules"]
 }
