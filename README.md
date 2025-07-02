@@ -7,33 +7,26 @@ This repository is a personal study and experimentation ground for modern monore
 ## 📦 Monorepo Structure
 
 ```mermaid
-flowchart TD
-  A[Root] --> B[apps/web (React/Vite)]
-  A --> C[apps/nextjs-app (Next.js 15)]
-  A --> D[packages/ui (Design System)]
-  A --> E[packages/eslint-config]
-  A --> F[packages/typescript-config]
-  A --> G[packages/prettier-config]
-  D -->|Storybook| H[Storybook]
+graph TD
+  Root --> apps_web["apps/web (React/Vite)"]
+  Root --> apps_nextjs_app["apps/nextjs-app (Next.js 15)"]
+  Root --> packages_ui["packages/ui (Design System)"]
+  Root --> packages_eslint_config["packages/eslint-config"]
+  Root --> packages_typescript_config["packages/typescript-config"]
+  Root --> packages_prettier_config["packages/prettier-config"]
+  packages_ui --> Storybook["Storybook"]
 ```
 
-- **Apps**
-  - `web`: React (Vite) app
-  - `nextjs-app`: (Planned) Next.js 15 app
-- **Packages**
-  - `@jaeungkim/ui`: Shared UI component library (design system)
-  - `@jaeungkim/eslint-config`: Shared ESLint config
-  - `@jaeungkim/typescript-config`: Shared TypeScript config
-  - `@jaeungkim/prettier-config`: Shared Prettier config
-- **Storybook**
-  - Integrated for the design system and/or UI packages
+- **Apps**: `web` (React/Vite), `nextjs-app` (Next.js 15, planned)
+- **Packages**: `@jaeungkim/ui`, `@jaeungkim/eslint-config`, `@jaeungkim/typescript-config`, `@jaeungkim/prettier-config`
+- **Storybook**: Integrated for the design system and/or UI packages
 
 ---
 
 ## 🚀 Purpose
 
-- **Learn and explore** monorepo structure, build, and deployment with multiple frameworks and tools.
-- **Experiment** with Next.js 15, React apps, a shared design system, Storybook, and custom CI/CD strategies for each app and package.
+- Learn and explore monorepo structure, build, and deployment with multiple frameworks and tools.
+- Experiment with Next.js 15, React apps, a shared design system, Storybook, and custom CI/CD strategies for each app and package.
 
 ---
 
@@ -55,56 +48,22 @@ flowchart TD
 
 ## 🔄 Version Control & Safe Upgrades with Changesets
 
-This monorepo uses [Changesets](https://github.com/changesets/changesets) to safely version and upgrade internal packages. This allows each app to use the version of a shared package it wants, and makes upgrades explicit and traceable.
+This monorepo uses [Changesets](https://github.com/changesets/changesets) to safely version and upgrade internal packages. Each app can use the version of a shared package it wants, making upgrades explicit and traceable.
 
-### 📝 Changesets Workflow
+### Changesets Workflow (Summary)
 
-```mermaid
-flowchart TD
-  A[Make changes to a package] --> B[Run yarn changeset]
-  B --> C[Commit code + changeset file]
-  C --> D[Run yarn changeset version]
-  D --> E[Commit version bumps & changelogs]
-  E --> F[Push to repo / CI/CD]
-  F --> G[Update app dependencies as needed]
-  G --> H[Run yarn install]
-```
-
-#### **Step-by-step:**
-1. **Make your changes** to a package (e.g., update a rule in `eslint-config`).
-2. **Create a changeset:**
-   ```sh
-   yarn changeset
-   ```
-   - Follow the prompts to describe your change and select affected packages.
-3. **Commit your changes** (including the new changeset file):
-   ```sh
-   git add .
-   git commit -m "feat(eslint-config): update rule X"
-   ```
-4. **Version and release:**
-   - When ready, run:
-     ```sh
-     yarn changeset version
-     ```
-   - This bumps versions and updates changelogs.
-   - Commit these changes:
-     ```sh
-     git add .
-     git commit -m "chore(release): version packages"
-     git push
-     ```
-5. **Update app dependencies** as needed:
-   - In each app's `package.json`, specify the version of the shared package you want to use.
-   - Run `yarn install` to update dependencies.
-
-> This workflow allows you to safely upgrade apps to new versions of shared packages when you're ready, and to track all changes and releases in git.
+1. Make your changes to a package (e.g., update a rule in `eslint-config`).
+2. Run `yarn changeset` and follow the prompts.
+3. Commit your code and the changeset file.
+4. Run `yarn changeset version` to bump versions and update changelogs.
+5. Commit and push the version bumps.
+6. In each app's `package.json`, specify the version of the shared package you want to use. Run `yarn install` to update dependencies.
 
 ---
 
-## 🧩 Using Different Versions of Internal Packages in Apps
+## 🧩 Using Different Versions of Internal Packages
 
-With this versioned monorepo setup, each app or package can use a different version of a shared internal package. For example, if you release `@jaeungkim/eslint-config@2.0.0`, but want `web` to use `1.0.0` and `nextjs-app` to use `2.0.0`, you can do so:
+Each app or package can use a different version of a shared internal package. For example:
 
 - In `apps/web/package.json`:
   ```json
@@ -120,33 +79,16 @@ With this versioned monorepo setup, each app or package can use a different vers
   ```
 
 After updating the versions, run:
+
 ```sh
 yarn install
 ```
 
-Each app will use the version you specify. This allows for safe, gradual upgrades and easy rollback if needed.
+**How does this work?**
 
-### How Does This Work?
-
-> **Modern package managers like Yarn Berry and pnpm support multiple versions of the same internal package within a monorepo.**
-
-- Each app's or package's `package.json` specifies the version of the internal package it wants.
-- The package manager installs and links the correct version for each app, even if that means having multiple versions in the monorepo at once.
-- When you run scripts or tools in each app, they use the version of the shared package you specified.
-- This is possible because these package managers use a content-addressable store (not just a flat `node_modules`), so they can keep multiple versions side-by-side and link them as needed.
-
-**Visual:**
-
-```mermaid
-flowchart TD
-  subgraph Monorepo
-    direction TB
-    A1[apps/web] -->|uses| B1[@jaeungkim/eslint-config@1.0.0]
-    A2[apps/nextjs-app] -->|uses| B2[@jaeungkim/eslint-config@2.0.0]
-    B1 -.->|shared| C1[packages/eslint-config]
-    B2 -.->|shared| C1
-  end
-```
+- Modern package managers like Yarn Berry and pnpm support multiple versions of the same internal package in a monorepo.
+- Each app's `package.json` specifies the version it wants.
+- The package manager links the correct version for each app, even if that means having multiple versions in the monorepo at once.
 
 ---
 
