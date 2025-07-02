@@ -10,14 +10,14 @@
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
-    "@repo/ui": "*",
+    "@jaeungkim/ui": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@jaeungkim/eslint-config": "*",
+    "@jaeungkim/eslint-config": "2.0.0",
     "@jaeungkim/prettier-config": "*",
-    "@jaeungkim/typescript-config": "*",
+    "@jaeungkim/typescript-config": "1.0.0",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^3.1.0",
